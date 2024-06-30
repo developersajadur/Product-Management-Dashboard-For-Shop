@@ -14,10 +14,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="flex flex-row gap-10">
-          <div className="min-h-screen w-[25%] bg-[#1D5D9B]">
+          <div className="min-h-screen w-[25%] bg-[#1D2939]">
             <Navbar />
           </div>
-          <div className="min-h-screen w-[75%]">
+          <div className="min-h-screen bg-[#E9ECEF] w-[75%] mt-10">
           {children}
           </div>
         </div>
