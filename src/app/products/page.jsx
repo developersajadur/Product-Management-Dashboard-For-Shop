@@ -1,29 +1,27 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
+
+const fetchProducts = async () => {
+    const response = await fetch('/products/api/get');
+    return response.json();
+};
 
 const Products = () => {
-    const [products, setProducts] = useState([]);
+    const { data, error, isLoading } = useQuery({
+        queryKey: ['products'],
+        queryFn: fetchProducts,
+    });
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch("products/api/get"); 
-                const data = await response.json();
-                setProducts(data);
-            } catch (error) {
-                console.error("Failed to fetch products", error);
-            }
-        };
-
-        fetchProducts();
-    }, []);
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
 
     return (
         <div>
             <h1>Products</h1>
             <ul>
-                {products.map((product) => (
-                    <li key={product._id}>{product.name}</li>
+                {data?.products?.map((product) => (
+                    <li key={product.name}>{product.name}</li>
                 ))}
             </ul>
         </div>
