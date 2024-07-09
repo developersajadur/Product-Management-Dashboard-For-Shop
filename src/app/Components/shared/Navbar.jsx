@@ -8,12 +8,17 @@ const Navbar = () => {
     const navLinks = [
         {
             title: "Dashboard",
-            path: "/dashboard",
+            path: "/",
             icon:  <FaHome />
         },
         {
             title: "Products",
             path: "/products",
+            icon: <HiShoppingBag />
+        },
+        {
+            title: "Products Add",
+            path: "/Product-Add",
             icon: <HiShoppingBag />
         },
     ];
