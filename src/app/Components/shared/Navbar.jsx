@@ -17,7 +17,7 @@ const Navbar = () => {
             icon: <HiShoppingBag />
         },
         {
-            title: "Products Add",
+            title: "Add Product",
             path: "/Product-Add",
             icon: <HiShoppingBag />
         },

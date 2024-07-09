@@ -14,6 +14,6 @@ export const GET = async () => {
         return new Response(JSON.stringify({ error: 'Failed to fetch products' }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' },
-        });
+        }); 
     }
 }
